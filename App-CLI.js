@@ -75,7 +75,7 @@ function askForInput(factor1, factor2, solutionLetter, product) {
     // Ask for input
     readline.question(`\nEnter the letter of your choice: `, input => {
         // Print response
-        if (input.toUpperCase() == solutionLetter) {
+        if (input.toUpperCase() === solutionLetter) {
             console.log(`${solutionLetter}) ${product} is correct.`);
             askQuestion();
         } else {
