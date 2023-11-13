@@ -46,7 +46,7 @@ function generateWrongAnswer(factor1, factor2) {
     let wrongAnswer;
     const generationApproach = Math.random();
 
-    if (generationApproach < 0.667) {  // increment or decrement one of the factors
+    if (generationApproach < 0.667) { // increment or decrement one of the factors
         do {
             const factorToShift = Math.random() > 0.5 ? factor1 : factor2;
             const shiftAmount = Math.random() > 0.5 ? 1 : -1;
