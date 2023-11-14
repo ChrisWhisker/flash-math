@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import FlashCard from './components/FlashCard';
 import ChoiceButton from './components/ChoiceButton';
 
@@ -10,10 +10,6 @@ const App = () => {
     Math.floor(Math.random() * 100) + 1,
     6*3,
   ]);
-
-  function onButtonPress(title) {
-    alert(`Button ${title} pressed`);
-  }
 
   return (
     <View flexDirection={'column'} flex={1}>
