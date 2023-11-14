@@ -5,11 +5,11 @@ import FlashCard from "./components/FlashCard";
 
 const App = () => {
   // Functions
-  const makeFactor = () : number => {
+  const makeFactor = (): number => {
     return Math.floor(Math.random() * 10) + 1;
   };
 
-  const makeChoices = (num1: number, num2: number) : [number, number, number, number] => {
+  const makeChoices = (num1: number, num2: number): [number, number, number, number] => {
     return [
       (num1 + 1) * num2,
       num1 * num2,
@@ -29,13 +29,13 @@ const App = () => {
     setChoices(
       makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5)
     );
-  }
+  };
 
   const pressButton = (choice: number) => {
     if (choice === solution) {
-      Alert.alert("You're right!", "", [{text: "New problem", onPress: makeNewProblem}]);
+      Alert.alert("You're right!", "", [{ text: "New problem", onPress: makeNewProblem }]);
     } else {
-      Alert.alert("Wrong", "", [{text: "Try again"}]);
+      Alert.alert("Wrong", "", [{ text: "Try again" }]);
     }
   };
 
