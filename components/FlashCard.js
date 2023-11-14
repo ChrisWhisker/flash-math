@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         backgroundColor: "grey",
         alignSelf: "center",
         borderRadius: 10,
-        borderWidth: 1,
+        borderWidth: 3,
         borderColor: "black",
     },
     flashCardText: {

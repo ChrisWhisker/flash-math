@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import ChoiceButton from "./components/ChoiceButton";
 import FlashCard from "./components/FlashCard";
 
@@ -18,21 +18,24 @@ const App = () => {
     ];
   };
 
+  const makeNewProblem = () => {
+    const newFactor1 = makeFactor();
+    setfactor1(newFactor1);
+    const newFactor2 = makeFactor();
+    setfactor2(newFactor2);
+    const newSolution = newFactor1 * newFactor2;
+    setsolution(newSolution);
+    // Randomize order of choices
+    setChoices(
+      makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5)
+    );
+  }
+
   const pressButton = (choice) => {
-    console.log(`Solution is ${solution}. Button ${choice} was pressed.`);
     if (choice === solution) {
-      alert(`You're right!`);
-      const newFactor1 = makeFactor();
-      setfactor1(newFactor1);
-      const newFactor2 = makeFactor();
-      setfactor2(newFactor2);
-      const newSolution = newFactor1 * newFactor2;
-      setsolution(newSolution);
-      setChoices(
-        makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5)
-      );
+      Alert.alert("You're right!", "", [{text: "New problem", onPress: makeNewProblem}]);
     } else {
-      alert("Try again.");
+      Alert.alert("Wrong", "", [{text: "Try again"}]);
     }
   };
 
