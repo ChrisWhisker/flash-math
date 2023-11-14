@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function ChoiceButton({choice, solution}) {
+export default function ChoiceButton({choice, pressHandler}) {
     return (
         <TouchableOpacity
             style={styles.choiceButton}
-            onPress={() => pressButton(choice, solution)}
+            onPress={() => pressHandler(choice)}
         >
-        <Text style={styles.choiceText}>{choice}</Text>
+        <Text style={styles.choiceText}>
+            {choice}
+        </Text>
         </TouchableOpacity>
     );
 }
@@ -18,6 +20,8 @@ const styles = StyleSheet.create({
         padding: 20,
         margin: 20,
         borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'black',
     },
     choiceText: {
         color: 'white',
@@ -27,10 +31,4 @@ const styles = StyleSheet.create({
     },
 });
 
-const pressButton = (choice, solution) => {
-    if (choice === solution) {
-        alert(`You're right!`);
-    } else {
-        alert('Incorrect.');
-    }
-}
+

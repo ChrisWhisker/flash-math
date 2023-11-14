@@ -1,21 +1,30 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import FlashCard from './components/FlashCard';
 import ChoiceButton from './components/ChoiceButton';
+import FlashCard from './components/FlashCard';
 
 const App = () => {
-
+  // Variables
   const [factor1, setfactor1] = useState(Math.floor(Math.random() * 10) + 1);
   const [factor2, setfactor2] = useState(Math.floor(Math.random() * 10) + 1);
   const solution = factor1 * factor2;
 
   const [choices, setChoices] = useState([
-    4*7,
+    (factor1 + 1) * factor2,
     solution,
     Math.floor(Math.random() * 100) + 1,
-    6*3,
+    factor1 * (factor2 - 1),
   ]);
 
+  const pressButton = (choice) => {
+    if (choice === solution) {
+        alert(`You're right!`);
+    } else {
+        alert('Incorrect.');
+    }
+  }
+
+  // App
   return (
     <View flexDirection={'column'} flex={1}>
       <View style={styles.questionContainer}>
@@ -23,7 +32,7 @@ const App = () => {
       </View>
       <View style={styles.choicesContainter}>
         {choices.map((choice) => (
-          <ChoiceButton choice={choice} solution={solution} key={choice}></ChoiceButton>
+          <ChoiceButton choice={choice} pressHandler={pressButton} key={choice}></ChoiceButton>
         ))}
       </View>
     </View>

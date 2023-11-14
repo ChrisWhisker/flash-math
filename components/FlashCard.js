@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function FlashCard({question}) {
     return (
@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'grey',
         alignSelf: 'center',
         borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'black',
     },
     flashCardText: {
         textAlign: 'center',
