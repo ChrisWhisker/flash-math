@@ -28,7 +28,7 @@ const App = () => {
       setfactor2(newFactor2);
       const newSolution = newFactor1 * newFactor2;
       setsolution(newSolution);
-      setChoices(makeChoices(newFactor1, newFactor2));
+      setChoices(makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5));
     } else {
       alert('Try again.');
     }
