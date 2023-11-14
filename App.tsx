@@ -5,11 +5,11 @@ import FlashCard from "./components/FlashCard";
 
 const App = () => {
   // Functions
-  const makeFactor = () => {
+  const makeFactor = () : number => {
     return Math.floor(Math.random() * 10) + 1;
   };
 
-  const makeChoices = (num1, num2) => {
+  const makeChoices = (num1: number, num2: number) : [number, number, number, number] => {
     return [
       (num1 + 1) * num2,
       num1 * num2,
@@ -20,18 +20,18 @@ const App = () => {
 
   const makeNewProblem = () => {
     const newFactor1 = makeFactor();
-    setfactor1(newFactor1);
+    setFactor1(newFactor1);
     const newFactor2 = makeFactor();
-    setfactor2(newFactor2);
+    setFactor2(newFactor2);
     const newSolution = newFactor1 * newFactor2;
-    setsolution(newSolution);
+    setSolution(newSolution);
     // Randomize order of choices
     setChoices(
       makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5)
     );
   }
 
-  const pressButton = (choice) => {
+  const pressButton = (choice: number) => {
     if (choice === solution) {
       Alert.alert("You're right!", "", [{text: "New problem", onPress: makeNewProblem}]);
     } else {
@@ -40,14 +40,14 @@ const App = () => {
   };
 
   // Variables
-  const [factor1, setfactor1] = useState(makeFactor());
-  const [factor2, setfactor2] = useState(makeFactor());
-  const [solution, setsolution] = useState(factor1 * factor2);
+  const [factor1, setFactor1] = useState(makeFactor());
+  const [factor2, setFactor2] = useState(makeFactor());
+  const [solution, setSolution] = useState(factor1 * factor2);
   const [choices, setChoices] = useState(makeChoices(factor1, factor2));
 
   // App
   return (
-    <View flexDirection={"column"} flex={1}>
+    <View style={styles.root}>
       <View style={styles.questionContainer}>
         <FlashCard question={`${factor1} x ${factor2}`} />
       </View>
@@ -65,6 +65,9 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   questionContainer: {
     flex: 2,
     backgroundColor: "#2c313c",

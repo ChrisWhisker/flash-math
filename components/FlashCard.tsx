@@ -1,7 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function FlashCard({ question }) {
+type Props = {
+    question: string;
+};
+export default function FlashCard({ question }: Props) {
     return (
         <View style={styles.flashCard}>
             <TouchableOpacity style={styles.closeButton}>
