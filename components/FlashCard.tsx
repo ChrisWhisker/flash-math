@@ -1,14 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {MaterialIcons} from '@expo/vector-icons';
 
 type Props = {
     question: string;
 };
+
 export default function FlashCard({ question }: Props) {
     return (
         <View style={styles.flashCard}>
             <TouchableOpacity style={styles.closeButton}>
-                <Text style={styles.closeButtonText}>x</Text>
+                <MaterialIcons name="close" size={40} style={styles.closeIcon}></MaterialIcons>
             </TouchableOpacity>
             <Text style={styles.flashCardText}>{question}</Text>
         </View>
@@ -22,24 +24,25 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 3,
         borderColor: "black",
+        justifyContent: "center",
     },
     flashCardText: {
+        textAlignVertical: "center",
         textAlign: "center",
         fontSize: 48,
         color: "#2c313c",
-        padding: 100,
+        paddingHorizontal: 100,
+        paddingTop: 60,
+        paddingBottom: 100,
     },
     closeButton: {
         alignSelf: "flex-end",
-        backgroundColor: "grey",
-        borderRadius: 10,
-        width: 40,
-        height: 40,
+        alignContent: "center",
+        justifyContent: "center",
+        padding: 5,
     },
-    closeButtonText: {
-        fontSize: 20,
-        textAlign: "center",
-        color: "white",
-        padding: 10,
-    },
+    closeIcon: {
+        color: "#666666",
+        alignSelf: "center",
+    }
 });
