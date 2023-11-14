@@ -1,6 +1,6 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {MaterialIcons} from '@expo/vector-icons';
 
 type Props = {
     question: string;
