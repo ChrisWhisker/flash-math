@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function FlashCard({question}) {
+export default function FlashCard({ question }) {
     return (
-    <View style={styles.flashCard}>
-        <TouchableOpacity style = {styles.closeButton}>
-            <Text style = {styles.closeButtonText}>x</Text>
-        </TouchableOpacity>
-        <Text style={styles.flashCardText}>{question}</Text>
-    </View>
+        <View style={styles.flashCard}>
+            <TouchableOpacity style={styles.closeButton}>
+                <Text style={styles.closeButtonText}>x</Text>
+            </TouchableOpacity>
+            <Text style={styles.flashCardText}>{question}</Text>
+        </View>
     );
 }
 

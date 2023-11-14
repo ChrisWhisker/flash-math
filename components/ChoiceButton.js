@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function ChoiceButton({choice, pressHandler}) {
+export default function ChoiceButton({ choice, pressHandler }) {
     return (
         <TouchableOpacity
             style={styles.choiceButton}
             onPress={() => pressHandler(choice)}
         >
-        <Text style={styles.choiceText}>
-            {choice}
-        </Text>
+            <Text style={styles.choiceText}>
+                {choice}
+            </Text>
         </TouchableOpacity>
     );
 }
