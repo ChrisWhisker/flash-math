@@ -20,16 +20,17 @@ export default function ChoiceButton({ choice, pressHandler }: Props) {
 const styles = StyleSheet.create({
     choiceButton: {
         backgroundColor: "#4d4d4d",
-        padding: 20,
         margin: 20,
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "black",
+        width: 150,
+        height: 100,
+        justifyContent: "center",
     },
     choiceText: {
+        textAlign: "center",
         color: "white",
         fontSize: 24,
-        paddingHorizontal: 35,
-        paddingVertical: 10,
     },
 });
