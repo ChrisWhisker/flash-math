@@ -4,9 +4,14 @@ import FlashCard from './components/FlashCard';
 import ChoiceButton from './components/ChoiceButton';
 
 const App = () => {
+
+  const [factor1, setfactor1] = useState(Math.floor(Math.random() * 10) + 1);
+  const [factor2, setfactor2] = useState(Math.floor(Math.random() * 10) + 1);
+  const solution = factor1 * factor2;
+
   const [choices, setChoices] = useState([
     4*7,
-    24,
+    solution,
     Math.floor(Math.random() * 100) + 1,
     6*3,
   ]);
@@ -14,14 +19,13 @@ const App = () => {
   return (
     <View flexDirection={'column'} flex={1}>
       <View style={styles.questionContainer}>
-        <FlashCard />
+        <FlashCard question={`${factor1} x ${factor2}`}/>
       </View>
       <View style={styles.choicesContainter}>
-        {choices.map((item) => (
-          <ChoiceButton choice={item} key={item}></ChoiceButton>
+        {choices.map((choice) => (
+          <ChoiceButton choice={choice} solution={solution} key={choice}></ChoiceButton>
         ))}
       </View>
-      
     </View>
   );
 };

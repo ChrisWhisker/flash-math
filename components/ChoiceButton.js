@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-export default function ChoiceButton({choice}) {
+export default function ChoiceButton({choice, solution}) {
     return (
         <TouchableOpacity
             style={styles.choiceButton}
-            onPress={() => alert(`You selected ${choice}!`)}
+            onPress={() => pressButton(choice, solution)}
         >
         <Text style={styles.choiceText}>{choice}</Text>
         </TouchableOpacity>
@@ -26,3 +26,11 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
 });
+
+const pressButton = (choice, solution) => {
+    if (choice === solution) {
+        alert(`You're right!`);
+    } else {
+        alert('Incorrect.');
+    }
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
-export default function FlashCard() {
+export default function FlashCard({question}) {
     return (
     <View style={styles.flashCard}>
         <TouchableOpacity style = {styles.closeButton}>
             <Text style = {styles.closeButtonText}>x</Text>
         </TouchableOpacity>
-        <Text style={styles.flashCardText}>4 x 6</Text>
+        <Text style={styles.flashCardText}>{question}</Text>
     </View>
     );
 }
