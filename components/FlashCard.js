@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function FlashCard({ question }) {
     return (
@@ -14,29 +14,29 @@ export default function FlashCard({ question }) {
 
 const styles = StyleSheet.create({
     flashCard: {
-        backgroundColor: 'grey',
-        alignSelf: 'center',
+        backgroundColor: "grey",
+        alignSelf: "center",
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: "black",
     },
     flashCardText: {
-        textAlign: 'center',
+        textAlign: "center",
         fontSize: 48,
-        color: '#2c313c',
+        color: "#2c313c",
         padding: 100,
     },
     closeButton: {
-        alignSelf: 'flex-end',
-        backgroundColor: 'grey',
+        alignSelf: "flex-end",
+        backgroundColor: "grey",
         borderRadius: 10,
         width: 40,
         height: 40,
     },
     closeButtonText: {
         fontSize: 20,
-        textAlign: 'center',
-        color: 'white',
+        textAlign: "center",
+        color: "white",
         padding: 10,
     },
 });
