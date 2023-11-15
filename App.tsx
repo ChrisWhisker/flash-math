@@ -35,18 +35,18 @@ const App = () => {
     if (choice === solution) {
       Alert.alert("You're right!", "", [{ text: "New problem", onPress: makeNewProblem }]);
     } else {
-      Alert.alert("Wrong", "", [{ text: "Try again" }]);
+      Alert.alert("That's wrong.", "", [{ text: "Try again" }]);
     }
   };
 
   // Variables
-  const [factor1, setFactor1] = useState(makeFactor());
+    const [factor1, setFactor1] = useState(makeFactor());
   const [factor2, setFactor2] = useState(makeFactor());
   const [solution, setSolution] = useState(factor1 * factor2);
   const [choices, setChoices] = useState(makeChoices(factor1, factor2));
 
   // App
-  return (
+    return (
     <View style={styles.root}>
       <View style={styles.questionContainer}>
         <FlashCard question={`${factor1} x ${factor2}`} />

@@ -10,7 +10,7 @@ export default function FlashCard({ question }: Props) {
     return (
         <View style={styles.flashCard}>
             <TouchableOpacity style={styles.closeButton}>
-                <MaterialIcons name="close" size={40} style={styles.closeIcon}></MaterialIcons>
+                <MaterialIcons name="close" size={40} style={styles.closeIcon}/>
             </TouchableOpacity>
             <Text style={styles.flashCardText}>{question}</Text>
         </View>
