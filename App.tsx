@@ -82,7 +82,7 @@ const App = () => {
 
   const pressButton = (choice: number) => {
     if (choice === solution) {
-      Alert.alert("You're right!", "", [
+      Alert.alert("You're right!", `${factor1} x ${factor2} = ${solution}`, [
         { text: "New problem", onPress: makeNewEquation },
       ]);
     } else {
