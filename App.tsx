@@ -9,16 +9,19 @@ const App = () => {
     return Math.floor(Math.random() * 10) + 1;
   };
 
-  const makeChoices = (num1: number, num2: number): [number, number, number, number] => {
-    return [
-      (num1 + 1) * num2,
-      num1 * num2,
+  const makeChoices = (f1: number, f2: number): number[] => {
+    console.log(`Making choices. Equation is ${f1} x ${f2}`);
+    const newChoices = [
+      f1 * f2,
+      (f1 + 1) * f2,
+      f1 * (f2 - 1),
       Math.floor(Math.random() * 100) + 1,
-      num1 * (num2 - 1),
     ];
+    console.log(`New choices are ${newChoices}`);
+    return newChoices;
   };
 
-  const makeNewProblem = () => {
+  const makeNewEquation = () => {
     const newFactor1 = makeFactor();
     setFactor1(newFactor1);
     const newFactor2 = makeFactor();
@@ -26,24 +29,24 @@ const App = () => {
     const newSolution = newFactor1 * newFactor2;
     setSolution(newSolution);
     // Randomize order of choices
-    setChoices(
-      makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5)
-    );
+    const newChoices = makeChoices(newFactor1, newFactor2).sort(() => Math.random() - 0.5);
+    console.log(`New choices shuffled are ${newChoices}`);
+    setChoices(newChoices);
   };
 
   const pressButton = (choice: number) => {
     if (choice === solution) {
-      Alert.alert("You're right!", "", [{ text: "New problem", onPress: makeNewProblem }]);
+      Alert.alert("You're right!", "", [{ text: "New problem", onPress: makeNewEquation }]);
     } else {
       Alert.alert("That's wrong.", "", [{ text: "Try again" }]);
     }
   };
 
   // Variables
-    const [factor1, setFactor1] = useState(makeFactor());
-  const [factor2, setFactor2] = useState(makeFactor());
+  const [factor1, setFactor1] = useState(makeFactor);
+  const [factor2, setFactor2] = useState(makeFactor);
   const [solution, setSolution] = useState(factor1 * factor2);
-  const [choices, setChoices] = useState(makeChoices(factor1, factor2));
+  const [choices, setChoices] = useState(() => makeChoices(factor1, factor2));
 
   // App
     return (
