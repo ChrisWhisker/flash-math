@@ -19,8 +19,7 @@ export default function FlashCard({ question }: Props) {
 
 const styles = StyleSheet.create({
     flashCard: {
-        width: 300,
-        height: 300,
+        width: 350,
         backgroundColor: "grey",
         alignSelf: "center",
         borderRadius: 10,
@@ -31,8 +30,8 @@ const styles = StyleSheet.create({
     flashCardText: {
         textAlignVertical: "center",
         textAlign: "center",
-        fontSize: 48,
-        color: "#2c313c",
+        fontSize: 60,
+        color: "white",
         paddingTop: 60,
         paddingBottom: 100,
     },
