@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert, StatusBar, StyleSheet, View } from "react-native";
 import ChoiceButton from "./components/ChoiceButton";
 import FlashCard from "./components/FlashCard";
 
@@ -9,11 +9,7 @@ const App = () => {
     return Math.floor(Math.random() * 10) + 1;
   };
 
-  const generateWrongAnswer = (
-    f1: number,
-    f2: number,
-    choiceList: number[]
-  ) => {
+  const generateWrongAnswer = (f1: number, f2: number, choiceList: number[]) => {
     let wrongAnswer: number, approachName: string, details = "";
     const generationApproach = Math.random();
 
@@ -99,6 +95,7 @@ const App = () => {
   // App
   return (
     <View style={styles.root}>
+      <StatusBar barStyle = "light-content" backgroundColor = "#1c1f26"/>
       <View style={styles.questionContainer}>
         <FlashCard question={`${factor1} x ${factor2}`} />
       </View>
