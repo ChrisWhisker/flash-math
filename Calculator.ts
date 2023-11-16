@@ -7,25 +7,25 @@ class Calculator {
     public makeChoices = (f1: number, f2: number): number[] => {
         console.log(`Making choices. Equation is ${f1} x ${f2}`);
         let newChoices = [f1 * f2];
-    
+
         for (let i = 0; i < 3; i++) {
             newChoices.push(this.generateWrongAnswer(f1, f2, newChoices));
         }
         // console.log(`New choices are ${newChoices}`);
         return newChoices;
     };
-    
+
     private generateWrongAnswer = (f1: number, f2: number, choiceList: number[]) => {
         let wrongAnswer: number, approachName: string, details = "";
         const generationApproach = Math.random();
-    
+
         if (generationApproach < 0.667) {
             // increment or decrement one of the factors
             approachName = "Shifted Factor";
             do {
                 const factorToShift = Math.random() > 0.5 ? f1 : f2;
                 const shiftAmount = Math.random() > 0.5 ? 1 : -1;
-    
+
                 if (factorToShift === f1) {
                     wrongAnswer = (factorToShift + shiftAmount) * f2;
                     details = `(${(factorToShift + shiftAmount)} x ${f2})`;
